@@ -145,8 +145,8 @@ func (a *tsserver) FetchServerBinary(ctx context.Context, version interface{}, d
 		Name: a.Name(),
 		Path: serverPath,
 		Arguments: []string{
-			"--stdio",              // Use stdio for communication
-			"--log-level", "debug", // Enable debug logging
+			"--stdio",          // Use stdio for communication
+			"--log-level", "4", // Enable debug logging
 		},
 		Env: env,
 	}, nil
