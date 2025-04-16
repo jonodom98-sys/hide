@@ -19,7 +19,7 @@ import (
 	protocol "github.com/tliron/glsp/protocol_3_16"
 )
 
-const MaxDiagnosticsDelay = time.Second * 1
+const MaxDiagnosticsDelay = time.Second * 2
 
 type Service interface {
 	CreateFile(ctx context.Context, path, content string) (*model.File, error)
