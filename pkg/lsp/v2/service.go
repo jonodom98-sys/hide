@@ -68,6 +68,9 @@ func (s *ServiceImpl) StartServer(ctx context.Context, languageId lang.LanguageI
 				DocumentSymbol: &protocol.DocumentSymbolClientCapabilities{
 					HierarchicalDocumentSymbolSupport: boolPointer(true),
 				},
+				PublishDiagnostics: &protocol.PublishDiagnosticsClientCapabilities{
+					RelatedInformation: boolPointer(true),
+				},
 			},
 		},
 		WorkspaceFolders: []protocol.WorkspaceFolder{
@@ -83,7 +86,7 @@ func (s *ServiceImpl) StartServer(ctx context.Context, languageId lang.LanguageI
 		return fmt.Errorf("failed to initialize language server: %w", err)
 	}
 
-	log.Debug().Str("languageId", languageId).Msg("Initialized language server")
+	log.Debug().Str("languageId", languageId).Any("initResult", initResult).Msg("Initialized language server")
 
 	// Check capabilities
 	if opt, ok := initResult.Capabilities.TextDocumentSync.(protocol.TextDocumentSyncOptions); ok {
@@ -286,7 +289,7 @@ func (s *ServiceImpl) getClients(_ context.Context) []Client {
 }
 
 func (s *ServiceImpl) listenForDiagnostics(channel <-chan protocol.PublishDiagnosticsParams) {
-	log.Debug().Msg("Start listening")
+	log.Debug().Msg("Start listening for diagnostics")
 
 	// reads fro chanel util it is closed
 	for diagnostics := range channel {
