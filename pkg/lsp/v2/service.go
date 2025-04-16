@@ -68,6 +68,9 @@ func (s *ServiceImpl) StartServer(ctx context.Context, languageId lang.LanguageI
 				DocumentSymbol: &protocol.DocumentSymbolClientCapabilities{
 					HierarchicalDocumentSymbolSupport: boolPointer(true),
 				},
+				PublishDiagnostics: &protocol.PublishDiagnosticsClientCapabilities{
+					RelatedInformation: boolPointer(true),
+				},
 			},
 		},
 		WorkspaceFolders: []protocol.WorkspaceFolder{
@@ -83,7 +86,7 @@ func (s *ServiceImpl) StartServer(ctx context.Context, languageId lang.LanguageI
 		return fmt.Errorf("failed to initialize language server: %w", err)
 	}
 
-	log.Debug().Str("languageId", languageId).Msg("Initialized language server")
+	log.Debug().Str("languageId", languageId).Any("initResult", initResult).Msg("Initialized language server")
 
 	// Check capabilities
 	if opt, ok := initResult.Capabilities.TextDocumentSync.(protocol.TextDocumentSyncOptions); ok {
@@ -198,6 +201,8 @@ func (s *ServiceImpl) GetDocumentOutline(ctx context.Context, file model.File) (
 		return DocumentOutline{}, NewLanguageServerNotFoundError(lang)
 	}
 
+	log.Debug().Msgf("get document outline %s", file.Path)
+
 	symbols, err := cli.GetDocumentSymbols(ctx, protocol.DocumentSymbolParams{
 		TextDocument: protocol.TextDocumentIdentifier{
 			URI: DocumentURI(file.Path),
@@ -269,12 +274,12 @@ func (s *ServiceImpl) Cleanup(ctx context.Context) error {
 	return nil
 }
 
-func (s *ServiceImpl) getClient(ctx context.Context, languageId lang.LanguageID) (Client, bool) {
+func (s *ServiceImpl) getClient(_ context.Context, languageId lang.LanguageID) (Client, bool) {
 	client, ok := s.clientPool.Get(languageId)
 	return client, ok
 }
 
-func (s *ServiceImpl) getClients(ctx context.Context) []Client {
+func (s *ServiceImpl) getClients(_ context.Context) []Client {
 	clients := make([]Client, 0)
 	for _, client := range s.clientPool.GetAll() {
 		clients = append(clients, client)
@@ -284,7 +289,7 @@ func (s *ServiceImpl) getClients(ctx context.Context) []Client {
 }
 
 func (s *ServiceImpl) listenForDiagnostics(channel <-chan protocol.PublishDiagnosticsParams) {
-	log.Debug().Msg("Start listening")
+	log.Debug().Msg("Start listening for diagnostics")
 
 	// reads fro chanel util it is closed
 	for diagnostics := range channel {

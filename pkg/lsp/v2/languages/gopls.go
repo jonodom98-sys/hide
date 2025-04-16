@@ -80,9 +80,10 @@ func (a *gopls) FetchServerBinary(ctx context.Context, version interface{}, dele
 			Name:      a.Name(),
 			Path:      goplsPath,
 			Arguments: []string{"serve"},
-			Env: map[string]string{
-				"GOPATH": os.Getenv("GOPATH"),
-				"GOROOT": os.Getenv("GOROOT"),
+			Env:       map[string]string{
+				// TODO: why this prevents LSP from working?
+				// "GOPATH": os.Getenv("GOPATH"),
+				// "GOROOT": os.Getenv("GOROOT"),
 			},
 		}, nil
 	}
@@ -99,14 +100,15 @@ func (a *gopls) FetchServerBinary(ctx context.Context, version interface{}, dele
 		Name:      a.Name(),
 		Path:      goplsPath,
 		Arguments: []string{"serve"},
-		Env: map[string]string{
-			"GOPATH": os.Getenv("GOPATH"),
-			"GOROOT": os.Getenv("GOROOT"),
+		Env:       map[string]string{
+			// TODO: why this prevents LSP from working?
+			//"GOPATH": os.Getenv("GOPATH"),
+			//"GOROOT": os.Getenv("GOROOT"),
 		},
 	}, nil
 }
 
-func checkVersion(ctx context.Context, path string, wantVersion string, delegate Delegate) (bool, error) {
+func checkVersion(_ context.Context, path string, wantVersion string, _ Delegate) (bool, error) {
 	if _, err := os.Stat(path); err != nil {
 		return false, nil
 	}
