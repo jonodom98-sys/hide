@@ -23,6 +23,9 @@ type Binary struct {
 
 // EnvAsKeyVal returns env vars in the form "key=value".
 func (b *Binary) EnvAsKeyVal() []string {
+	if len(b.Env) == 0 {
+		return nil
+	}
 	// does not have a deterministic order
 	out := make([]string, 0, len(b.Env))
 	for k, v := range b.Env {
