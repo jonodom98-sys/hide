@@ -46,7 +46,6 @@ type ProcessImpl struct {
 
 func NewProcess(bin lang.Binary) (Process, error) {
 	cmd := exec.Command(bin.Path, bin.Arguments...)
-	// TODO: check why this prevents LSP server from working
 	cmd.Env = bin.EnvAsKeyVal()
 
 	// Set SysProcAttr to create a new process group
