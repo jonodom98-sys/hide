@@ -25,6 +25,12 @@ func (m *MockClient) Clone(url, dst string) (*git.Repository, error) {
 	return args.Get(0).(*git.Repository), args.Error(1)
 }
 
+// OpenRepository mocks the OpenRepository method of the Client interface
+func (m *MockClient) OpenRepository(path string) (*git.Repository, error) {
+	args := m.Called(path)
+	return args.Get(0).(*git.Repository), args.Error(1)
+}
+
 // NewMockClient creates and returns a new instance of MockClient
 func NewMockClient() *MockClient {
 	return new(MockClient)

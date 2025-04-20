@@ -10,6 +10,7 @@ import (
 type Client interface {
 	Checkout(repo Repository, commit string) error
 	Clone(url, dst string) (*Repository, error)
+	OpenRepository(path string) (*Repository, error)
 }
 
 type ClientImpl struct{}
@@ -45,4 +46,12 @@ func (c *ClientImpl) Clone(url, dst string) (*Repository, error) {
 		return nil, err
 	}
 	return NewLocalRepository(dst)
+}
+
+func (c *ClientImpl) OpenRepository(path string) (*Repository, error) {
+	_, err := git.PlainOpen(path)
+	if err != nil {
+		return nil, fmt.Errorf("failed to open git repository at %s: %w", path, err)
+	}
+	return NewLocalRepository(path)
 }
