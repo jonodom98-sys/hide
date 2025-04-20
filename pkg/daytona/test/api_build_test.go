@@ -11,10 +11,10 @@ package daytona
 
 import (
 	"context"
+	openapiclient "github.com/hide-org/hide/pkg/daytona"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/hide-org/hide/pkg/daytona"
 )
 
 func Test_daytona_BuildAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_daytona_BuildAPIService(t *testing.T) {
 
 	t.Run("Test BuildAPIService CreateBuild", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.BuildAPI.CreateBuild(context.Background()).Execute()
 
@@ -36,7 +36,7 @@ func Test_daytona_BuildAPIService(t *testing.T) {
 
 	t.Run("Test BuildAPIService DeleteAllBuilds", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.BuildAPI.DeleteAllBuilds(context.Background()).Execute()
 
@@ -47,7 +47,7 @@ func Test_daytona_BuildAPIService(t *testing.T) {
 
 	t.Run("Test BuildAPIService DeleteBuild", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var buildId string
 
@@ -60,7 +60,7 @@ func Test_daytona_BuildAPIService(t *testing.T) {
 
 	t.Run("Test BuildAPIService DeleteBuildsFromPrebuild", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var prebuildId string
 
@@ -73,7 +73,7 @@ func Test_daytona_BuildAPIService(t *testing.T) {
 
 	t.Run("Test BuildAPIService GetBuild", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var buildId string
 
@@ -87,7 +87,7 @@ func Test_daytona_BuildAPIService(t *testing.T) {
 
 	t.Run("Test BuildAPIService ListBuilds", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.BuildAPI.ListBuilds(context.Background()).Execute()
 

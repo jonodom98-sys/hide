@@ -11,10 +11,10 @@ package daytona
 
 import (
 	"context"
+	openapiclient "github.com/hide-org/hide/pkg/daytona"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/hide-org/hide/pkg/daytona"
 )
 
 func Test_daytona_ServerAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_daytona_ServerAPIService(t *testing.T) {
 
 	t.Run("Test ServerAPIService GenerateNetworkKey", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ServerAPI.GenerateNetworkKey(context.Background()).Execute()
 
@@ -36,7 +36,7 @@ func Test_daytona_ServerAPIService(t *testing.T) {
 
 	t.Run("Test ServerAPIService GetConfig", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ServerAPI.GetConfig(context.Background()).Execute()
 
@@ -48,7 +48,7 @@ func Test_daytona_ServerAPIService(t *testing.T) {
 
 	t.Run("Test ServerAPIService SetConfig", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ServerAPI.SetConfig(context.Background()).Execute()
 

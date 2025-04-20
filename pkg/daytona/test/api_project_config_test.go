@@ -11,10 +11,10 @@ package daytona
 
 import (
 	"context"
+	openapiclient "github.com/hide-org/hide/pkg/daytona"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/hide-org/hide/pkg/daytona"
 )
 
 func Test_daytona_ProjectConfigAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_daytona_ProjectConfigAPIService(t *testing.T) {
 
 	t.Run("Test ProjectConfigAPIService DeleteProjectConfig", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var configName string
 
@@ -37,7 +37,7 @@ func Test_daytona_ProjectConfigAPIService(t *testing.T) {
 
 	t.Run("Test ProjectConfigAPIService GetDefaultProjectConfig", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var gitUrl string
 
@@ -51,7 +51,7 @@ func Test_daytona_ProjectConfigAPIService(t *testing.T) {
 
 	t.Run("Test ProjectConfigAPIService GetProjectConfig", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var configName string
 
@@ -65,7 +65,7 @@ func Test_daytona_ProjectConfigAPIService(t *testing.T) {
 
 	t.Run("Test ProjectConfigAPIService ListProjectConfigs", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ProjectConfigAPI.ListProjectConfigs(context.Background()).Execute()
 
@@ -77,7 +77,7 @@ func Test_daytona_ProjectConfigAPIService(t *testing.T) {
 
 	t.Run("Test ProjectConfigAPIService SetDefaultProjectConfig", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var configName string
 
@@ -90,7 +90,7 @@ func Test_daytona_ProjectConfigAPIService(t *testing.T) {
 
 	t.Run("Test ProjectConfigAPIService SetProjectConfig", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.ProjectConfigAPI.SetProjectConfig(context.Background()).Execute()
 

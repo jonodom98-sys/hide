@@ -18,12 +18,11 @@ import (
 	"net/url"
 )
 
-
 // SampleAPIService SampleAPI service
 type SampleAPIService service
 
 type ApiListSamplesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *SampleAPIService
 }
 
@@ -36,24 +35,25 @@ ListSamples List samples
 
 List samples
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListSamplesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiListSamplesRequest
 */
 func (a *SampleAPIService) ListSamples(ctx context.Context) ApiListSamplesRequest {
 	return ApiListSamplesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Sample
+//
+//	@return []Sample
 func (a *SampleAPIService) ListSamplesExecute(r ApiListSamplesRequest) ([]Sample, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Sample
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Sample
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SampleAPIService.ListSamples")

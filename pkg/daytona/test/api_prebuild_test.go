@@ -11,10 +11,10 @@ package daytona
 
 import (
 	"context"
+	openapiclient "github.com/hide-org/hide/pkg/daytona"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/hide-org/hide/pkg/daytona"
 )
 
 func Test_daytona_PrebuildAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_daytona_PrebuildAPIService(t *testing.T) {
 
 	t.Run("Test PrebuildAPIService DeletePrebuild", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var configName string
 		var prebuildId string
@@ -38,7 +38,7 @@ func Test_daytona_PrebuildAPIService(t *testing.T) {
 
 	t.Run("Test PrebuildAPIService GetPrebuild", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var configName string
 		var prebuildId string
@@ -53,7 +53,7 @@ func Test_daytona_PrebuildAPIService(t *testing.T) {
 
 	t.Run("Test PrebuildAPIService ListPrebuilds", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.PrebuildAPI.ListPrebuilds(context.Background()).Execute()
 
@@ -65,7 +65,7 @@ func Test_daytona_PrebuildAPIService(t *testing.T) {
 
 	t.Run("Test PrebuildAPIService ListPrebuildsForProjectConfig", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var configName string
 
@@ -79,7 +79,7 @@ func Test_daytona_PrebuildAPIService(t *testing.T) {
 
 	t.Run("Test PrebuildAPIService ProcessGitEvent", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.PrebuildAPI.ProcessGitEvent(context.Background()).Execute()
 
@@ -90,7 +90,7 @@ func Test_daytona_PrebuildAPIService(t *testing.T) {
 
 	t.Run("Test PrebuildAPIService SetPrebuild", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var configName string
 

@@ -24,7 +24,7 @@ func (g *GithubReleaseProvider) GetDownloadURL(ctx context.Context, arch string)
 	if err != nil {
 		return "", fmt.Errorf("failed to get latest release: %w", err)
 	}
-	
+
 	return release.GetAssetURL(arch)
 }
 
@@ -38,4 +38,4 @@ func NewStaticReleaseProvider(url string) ReleaseProvider {
 
 func (s *StaticReleaseProvider) GetDownloadURL(ctx context.Context, arch string) (string, error) {
 	return s.downloadURL, nil
-} 
+}

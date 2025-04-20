@@ -11,8 +11,8 @@ API version: v0.0.0-dev
 package daytona
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,23 +21,23 @@ var _ MappedNullable = &ServerConfig{}
 
 // ServerConfig struct for ServerConfig
 type ServerConfig struct {
-	ApiPort int32 `json:"apiPort"`
-	BinariesPath string `json:"binariesPath"`
-	BuildImageNamespace *string `json:"buildImageNamespace,omitempty"`
-	BuilderImage string `json:"builderImage"`
-	BuilderRegistryServer string `json:"builderRegistryServer"`
-	DefaultProjectImage string `json:"defaultProjectImage"`
-	DefaultProjectUser string `json:"defaultProjectUser"`
-	Frps *FRPSConfig `json:"frps,omitempty"`
-	HeadscalePort int32 `json:"headscalePort"`
-	Id string `json:"id"`
-	LocalBuilderRegistryImage string `json:"localBuilderRegistryImage"`
-	LocalBuilderRegistryPort int32 `json:"localBuilderRegistryPort"`
-	LogFile LogFileConfig `json:"logFile"`
-	ProvidersDir string `json:"providersDir"`
-	RegistryUrl string `json:"registryUrl"`
-	SamplesIndexUrl *string `json:"samplesIndexUrl,omitempty"`
-	ServerDownloadUrl string `json:"serverDownloadUrl"`
+	ApiPort                   int32         `json:"apiPort"`
+	BinariesPath              string        `json:"binariesPath"`
+	BuildImageNamespace       *string       `json:"buildImageNamespace,omitempty"`
+	BuilderImage              string        `json:"builderImage"`
+	BuilderRegistryServer     string        `json:"builderRegistryServer"`
+	DefaultProjectImage       string        `json:"defaultProjectImage"`
+	DefaultProjectUser        string        `json:"defaultProjectUser"`
+	Frps                      *FRPSConfig   `json:"frps,omitempty"`
+	HeadscalePort             int32         `json:"headscalePort"`
+	Id                        string        `json:"id"`
+	LocalBuilderRegistryImage string        `json:"localBuilderRegistryImage"`
+	LocalBuilderRegistryPort  int32         `json:"localBuilderRegistryPort"`
+	LogFile                   LogFileConfig `json:"logFile"`
+	ProvidersDir              string        `json:"providersDir"`
+	RegistryUrl               string        `json:"registryUrl"`
+	SamplesIndexUrl           *string       `json:"samplesIndexUrl,omitempty"`
+	ServerDownloadUrl         string        `json:"serverDownloadUrl"`
 }
 
 type _ServerConfig ServerConfig
@@ -506,7 +506,7 @@ func (o *ServerConfig) SetServerDownloadUrl(v string) {
 }
 
 func (o ServerConfig) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -567,10 +567,10 @@ func (o *ServerConfig) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -626,5 +626,3 @@ func (v *NullableServerConfig) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

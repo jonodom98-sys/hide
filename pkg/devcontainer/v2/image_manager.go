@@ -133,15 +133,15 @@ func (im *DockerImageManager) BuildImage(ctx context.Context, workingDir string,
 // LocalImageExists checks if an image with the given name exists locally.
 // It returns true if the image exists, false if it doesn't, and an error if the check fails.
 func (im *DockerImageManager) LocalImageExists(ctx context.Context, name string) (bool, error) {
-    imgs, err := im.ImageList(ctx, image.ListOptions{Filters: filters.NewArgs(filters.Arg("reference", name))})
-    if err != nil {
-        return false, fmt.Errorf("failed to list local images: %w", err)
-    }
-    exists := len(imgs) != 0
-    if exists {
-        log.Debug().Str("image", name).Msg("Local image exists")
-    }
-    return exists, nil
+	imgs, err := im.ImageList(ctx, image.ListOptions{Filters: filters.NewArgs(filters.Arg("reference", name))})
+	if err != nil {
+		return false, fmt.Errorf("failed to list local images: %w", err)
+	}
+	exists := len(imgs) != 0
+	if exists {
+		log.Debug().Str("image", name).Msg("Local image exists")
+	}
+	return exists, nil
 }
 
 func sanitizeContainerName(containerName string) string {

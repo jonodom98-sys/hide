@@ -19,9 +19,9 @@ type Repository struct {
 }
 
 type Project struct {
-	ID          ProjectId `json:"id"`
-	Path        string    `json:"path"`
-	Config      Config    `json:"config"`
+	ID          ProjectId  `json:"id"`
+	Path        string     `json:"path"`
+	Config      Config     `json:"config"`
 	Repository  Repository `json:"repository"`
 	ContainerId string
 }

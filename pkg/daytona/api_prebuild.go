@@ -19,16 +19,15 @@ import (
 	"strings"
 )
 
-
 // PrebuildAPIService PrebuildAPI service
 type PrebuildAPIService service
 
 type ApiDeletePrebuildRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PrebuildAPIService
 	configName string
 	prebuildId string
-	force *bool
+	force      *bool
 }
 
 // Force
@@ -46,15 +45,15 @@ DeletePrebuild Delete prebuild
 
 Delete prebuild
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param configName Project config name
- @param prebuildId Prebuild ID
- @return ApiDeletePrebuildRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param configName Project config name
+	@param prebuildId Prebuild ID
+	@return ApiDeletePrebuildRequest
 */
 func (a *PrebuildAPIService) DeletePrebuild(ctx context.Context, configName string, prebuildId string) ApiDeletePrebuildRequest {
 	return ApiDeletePrebuildRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		configName: configName,
 		prebuildId: prebuildId,
 	}
@@ -63,9 +62,9 @@ func (a *PrebuildAPIService) DeletePrebuild(ctx context.Context, configName stri
 // Execute executes the request
 func (a *PrebuildAPIService) DeletePrebuildExecute(r ApiDeletePrebuildRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PrebuildAPIService.DeletePrebuild")
@@ -144,7 +143,7 @@ func (a *PrebuildAPIService) DeletePrebuildExecute(r ApiDeletePrebuildRequest) (
 }
 
 type ApiGetPrebuildRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PrebuildAPIService
 	configName string
 	prebuildId string
@@ -159,28 +158,29 @@ GetPrebuild Get prebuild
 
 Get prebuild
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param configName Project config name
- @param prebuildId Prebuild ID
- @return ApiGetPrebuildRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param configName Project config name
+	@param prebuildId Prebuild ID
+	@return ApiGetPrebuildRequest
 */
 func (a *PrebuildAPIService) GetPrebuild(ctx context.Context, configName string, prebuildId string) ApiGetPrebuildRequest {
 	return ApiGetPrebuildRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		configName: configName,
 		prebuildId: prebuildId,
 	}
 }
 
 // Execute executes the request
-//  @return PrebuildDTO
+//
+//	@return PrebuildDTO
 func (a *PrebuildAPIService) GetPrebuildExecute(r ApiGetPrebuildRequest) (*PrebuildDTO, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PrebuildDTO
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PrebuildDTO
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PrebuildAPIService.GetPrebuild")
@@ -265,7 +265,7 @@ func (a *PrebuildAPIService) GetPrebuildExecute(r ApiGetPrebuildRequest) (*Prebu
 }
 
 type ApiListPrebuildsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PrebuildAPIService
 }
 
@@ -278,24 +278,25 @@ ListPrebuilds List prebuilds
 
 List prebuilds
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListPrebuildsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiListPrebuildsRequest
 */
 func (a *PrebuildAPIService) ListPrebuilds(ctx context.Context) ApiListPrebuildsRequest {
 	return ApiListPrebuildsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []PrebuildDTO
+//
+//	@return []PrebuildDTO
 func (a *PrebuildAPIService) ListPrebuildsExecute(r ApiListPrebuildsRequest) ([]PrebuildDTO, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []PrebuildDTO
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []PrebuildDTO
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PrebuildAPIService.ListPrebuilds")
@@ -378,7 +379,7 @@ func (a *PrebuildAPIService) ListPrebuildsExecute(r ApiListPrebuildsRequest) ([]
 }
 
 type ApiListPrebuildsForProjectConfigRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PrebuildAPIService
 	configName string
 }
@@ -392,26 +393,27 @@ ListPrebuildsForProjectConfig List prebuilds for project config
 
 List prebuilds for project config
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param configName Config name
- @return ApiListPrebuildsForProjectConfigRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param configName Config name
+	@return ApiListPrebuildsForProjectConfigRequest
 */
 func (a *PrebuildAPIService) ListPrebuildsForProjectConfig(ctx context.Context, configName string) ApiListPrebuildsForProjectConfigRequest {
 	return ApiListPrebuildsForProjectConfigRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		configName: configName,
 	}
 }
 
 // Execute executes the request
-//  @return []PrebuildDTO
+//
+//	@return []PrebuildDTO
 func (a *PrebuildAPIService) ListPrebuildsForProjectConfigExecute(r ApiListPrebuildsForProjectConfigRequest) ([]PrebuildDTO, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []PrebuildDTO
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []PrebuildDTO
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PrebuildAPIService.ListPrebuildsForProjectConfig")
@@ -495,9 +497,9 @@ func (a *PrebuildAPIService) ListPrebuildsForProjectConfigExecute(r ApiListPrebu
 }
 
 type ApiProcessGitEventRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PrebuildAPIService
-	workspace *map[string]interface{}
+	workspace  *map[string]interface{}
 }
 
 // Webhook event
@@ -515,22 +517,22 @@ ProcessGitEvent ProcessGitEvent
 
 ProcessGitEvent
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiProcessGitEventRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiProcessGitEventRequest
 */
 func (a *PrebuildAPIService) ProcessGitEvent(ctx context.Context) ApiProcessGitEventRequest {
 	return ApiProcessGitEventRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *PrebuildAPIService) ProcessGitEventExecute(r ApiProcessGitEventRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PrebuildAPIService.ProcessGitEvent")
@@ -609,10 +611,10 @@ func (a *PrebuildAPIService) ProcessGitEventExecute(r ApiProcessGitEventRequest)
 }
 
 type ApiSetPrebuildRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PrebuildAPIService
 	configName string
-	prebuild *CreatePrebuildDTO
+	prebuild   *CreatePrebuildDTO
 }
 
 // Prebuild
@@ -630,26 +632,27 @@ SetPrebuild Set prebuild
 
 Set prebuild
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param configName Config name
- @return ApiSetPrebuildRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param configName Config name
+	@return ApiSetPrebuildRequest
 */
 func (a *PrebuildAPIService) SetPrebuild(ctx context.Context, configName string) ApiSetPrebuildRequest {
 	return ApiSetPrebuildRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		configName: configName,
 	}
 }
 
 // Execute executes the request
-//  @return string
+//
+//	@return string
 func (a *PrebuildAPIService) SetPrebuildExecute(r ApiSetPrebuildRequest) (string, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  string
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PrebuildAPIService.SetPrebuild")

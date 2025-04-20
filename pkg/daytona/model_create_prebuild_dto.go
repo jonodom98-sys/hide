@@ -11,8 +11,8 @@ API version: v0.0.0-dev
 package daytona
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,11 +21,11 @@ var _ MappedNullable = &CreatePrebuildDTO{}
 
 // CreatePrebuildDTO struct for CreatePrebuildDTO
 type CreatePrebuildDTO struct {
-	Branch *string `json:"branch,omitempty"`
-	CommitInterval *int32 `json:"commitInterval,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Retention int32 `json:"retention"`
-	TriggerFiles []string `json:"triggerFiles,omitempty"`
+	Branch         *string  `json:"branch,omitempty"`
+	CommitInterval *int32   `json:"commitInterval,omitempty"`
+	Id             *string  `json:"id,omitempty"`
+	Retention      int32    `json:"retention"`
+	TriggerFiles   []string `json:"triggerFiles,omitempty"`
 }
 
 type _CreatePrebuildDTO CreatePrebuildDTO
@@ -201,7 +201,7 @@ func (o *CreatePrebuildDTO) SetTriggerFiles(v []string) {
 }
 
 func (o CreatePrebuildDTO) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -239,10 +239,10 @@ func (o *CreatePrebuildDTO) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -298,5 +298,3 @@ func (v *NullableCreatePrebuildDTO) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
