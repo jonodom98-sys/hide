@@ -11,8 +11,8 @@ API version: v0.0.0-dev
 package daytona
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,16 +21,16 @@ var _ MappedNullable = &Project{}
 
 // Project struct for Project
 type Project struct {
-	BuildConfig *BuildConfig `json:"buildConfig,omitempty"`
-	EnvVars map[string]string `json:"envVars"`
-	GitProviderConfigId *string `json:"gitProviderConfigId,omitempty"`
-	Image string `json:"image"`
-	Name string `json:"name"`
-	Repository GitRepository `json:"repository"`
-	State *ProjectState `json:"state,omitempty"`
-	Target string `json:"target"`
-	User string `json:"user"`
-	WorkspaceId string `json:"workspaceId"`
+	BuildConfig         *BuildConfig      `json:"buildConfig,omitempty"`
+	EnvVars             map[string]string `json:"envVars"`
+	GitProviderConfigId *string           `json:"gitProviderConfigId,omitempty"`
+	Image               string            `json:"image"`
+	Name                string            `json:"name"`
+	Repository          GitRepository     `json:"repository"`
+	State               *ProjectState     `json:"state,omitempty"`
+	Target              string            `json:"target"`
+	User                string            `json:"user"`
+	WorkspaceId         string            `json:"workspaceId"`
 }
 
 type _Project Project
@@ -324,7 +324,7 @@ func (o *Project) SetWorkspaceId(v string) {
 }
 
 func (o Project) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -371,10 +371,10 @@ func (o *Project) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -430,5 +430,3 @@ func (v *NullableProject) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

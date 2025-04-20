@@ -11,10 +11,10 @@ package daytona
 
 import (
 	"context"
+	openapiclient "github.com/hide-org/hide/pkg/daytona"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/hide-org/hide/pkg/daytona"
 )
 
 func Test_daytona_GitProviderAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_daytona_GitProviderAPIService(t *testing.T) {
 
 	t.Run("Test GitProviderAPIService GetGitContext", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.GitProviderAPI.GetGitContext(context.Background()).Execute()
 
@@ -36,7 +36,7 @@ func Test_daytona_GitProviderAPIService(t *testing.T) {
 
 	t.Run("Test GitProviderAPIService GetGitProvider", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var gitProviderId string
 
@@ -50,7 +50,7 @@ func Test_daytona_GitProviderAPIService(t *testing.T) {
 
 	t.Run("Test GitProviderAPIService GetGitProviderIdForUrl", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var url string
 
@@ -64,7 +64,7 @@ func Test_daytona_GitProviderAPIService(t *testing.T) {
 
 	t.Run("Test GitProviderAPIService GetGitUser", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var gitProviderId string
 
@@ -78,7 +78,7 @@ func Test_daytona_GitProviderAPIService(t *testing.T) {
 
 	t.Run("Test GitProviderAPIService GetNamespaces", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var gitProviderId string
 
@@ -92,7 +92,7 @@ func Test_daytona_GitProviderAPIService(t *testing.T) {
 
 	t.Run("Test GitProviderAPIService GetRepoBranches", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var gitProviderId string
 		var namespaceId string
@@ -108,7 +108,7 @@ func Test_daytona_GitProviderAPIService(t *testing.T) {
 
 	t.Run("Test GitProviderAPIService GetRepoPRs", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var gitProviderId string
 		var namespaceId string
@@ -124,7 +124,7 @@ func Test_daytona_GitProviderAPIService(t *testing.T) {
 
 	t.Run("Test GitProviderAPIService GetRepositories", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var gitProviderId string
 		var namespaceId string
@@ -139,7 +139,7 @@ func Test_daytona_GitProviderAPIService(t *testing.T) {
 
 	t.Run("Test GitProviderAPIService GetUrlFromRepository", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.GitProviderAPI.GetUrlFromRepository(context.Background()).Execute()
 
@@ -151,7 +151,7 @@ func Test_daytona_GitProviderAPIService(t *testing.T) {
 
 	t.Run("Test GitProviderAPIService ListGitProviders", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.GitProviderAPI.ListGitProviders(context.Background()).Execute()
 
@@ -163,7 +163,7 @@ func Test_daytona_GitProviderAPIService(t *testing.T) {
 
 	t.Run("Test GitProviderAPIService ListGitProvidersForUrl", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var url string
 
@@ -177,7 +177,7 @@ func Test_daytona_GitProviderAPIService(t *testing.T) {
 
 	t.Run("Test GitProviderAPIService RemoveGitProvider", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var gitProviderId string
 
@@ -190,7 +190,7 @@ func Test_daytona_GitProviderAPIService(t *testing.T) {
 
 	t.Run("Test GitProviderAPIService SetGitProvider", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.GitProviderAPI.SetGitProvider(context.Background()).Execute()
 

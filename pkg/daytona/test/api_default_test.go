@@ -11,10 +11,10 @@ package daytona
 
 import (
 	"context"
+	openapiclient "github.com/hide-org/hide/pkg/daytona"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/hide-org/hide/pkg/daytona"
 )
 
 func Test_daytona_DefaultAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_daytona_DefaultAPIService(t *testing.T) {
 
 	t.Run("Test DefaultAPIService HealthCheck", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.DefaultAPI.HealthCheck(context.Background()).Execute()
 

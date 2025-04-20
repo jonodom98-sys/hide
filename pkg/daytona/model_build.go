@@ -11,8 +11,8 @@ API version: v0.0.0-dev
 package daytona
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,17 +21,17 @@ var _ MappedNullable = &Build{}
 
 // Build struct for Build
 type Build struct {
-	BuildConfig *BuildConfig `json:"buildConfig,omitempty"`
-	ContainerConfig ContainerConfig `json:"containerConfig"`
-	CreatedAt string `json:"createdAt"`
-	EnvVars map[string]string `json:"envVars"`
-	Id string `json:"id"`
-	Image *string `json:"image,omitempty"`
-	PrebuildId string `json:"prebuildId"`
-	Repository GitRepository `json:"repository"`
-	State BuildBuildState `json:"state"`
-	UpdatedAt string `json:"updatedAt"`
-	User *string `json:"user,omitempty"`
+	BuildConfig     *BuildConfig      `json:"buildConfig,omitempty"`
+	ContainerConfig ContainerConfig   `json:"containerConfig"`
+	CreatedAt       string            `json:"createdAt"`
+	EnvVars         map[string]string `json:"envVars"`
+	Id              string            `json:"id"`
+	Image           *string           `json:"image,omitempty"`
+	PrebuildId      string            `json:"prebuildId"`
+	Repository      GitRepository     `json:"repository"`
+	State           BuildBuildState   `json:"state"`
+	UpdatedAt       string            `json:"updatedAt"`
+	User            *string           `json:"user,omitempty"`
 }
 
 type _Build Build
@@ -350,7 +350,7 @@ func (o *Build) SetUser(v string) {
 }
 
 func (o Build) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -399,10 +399,10 @@ func (o *Build) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -458,5 +458,3 @@ func (v *NullableBuild) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

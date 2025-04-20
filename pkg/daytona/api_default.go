@@ -18,12 +18,11 @@ import (
 	"net/url"
 )
 
-
 // DefaultAPIService DefaultAPI service
 type DefaultAPIService service
 
 type ApiHealthCheckRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *DefaultAPIService
 }
 
@@ -36,24 +35,25 @@ HealthCheck Health check
 
 Health check
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiHealthCheckRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiHealthCheckRequest
 */
 func (a *DefaultAPIService) HealthCheck(ctx context.Context) ApiHealthCheckRequest {
 	return ApiHealthCheckRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return map[string]string
+//
+//	@return map[string]string
 func (a *DefaultAPIService) HealthCheckExecute(r ApiHealthCheckRequest) (map[string]string, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  map[string]string
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue map[string]string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.HealthCheck")

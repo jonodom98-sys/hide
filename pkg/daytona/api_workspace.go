@@ -19,14 +19,13 @@ import (
 	"strings"
 )
 
-
 // WorkspaceAPIService WorkspaceAPI service
 type WorkspaceAPIService service
 
 type ApiCreateWorkspaceRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *WorkspaceAPIService
-	workspace *CreateWorkspaceDTO
+	workspace  *CreateWorkspaceDTO
 }
 
 // Create workspace
@@ -44,24 +43,25 @@ CreateWorkspace Create a workspace
 
 Create a workspace
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateWorkspaceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateWorkspaceRequest
 */
 func (a *WorkspaceAPIService) CreateWorkspace(ctx context.Context) ApiCreateWorkspaceRequest {
 	return ApiCreateWorkspaceRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Workspace
+//
+//	@return Workspace
 func (a *WorkspaceAPIService) CreateWorkspaceExecute(r ApiCreateWorkspaceRequest) (*Workspace, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Workspace
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Workspace
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspaceAPIService.CreateWorkspace")
@@ -149,10 +149,10 @@ func (a *WorkspaceAPIService) CreateWorkspaceExecute(r ApiCreateWorkspaceRequest
 }
 
 type ApiGetWorkspaceRequest struct {
-	ctx context.Context
-	ApiService *WorkspaceAPIService
+	ctx         context.Context
+	ApiService  *WorkspaceAPIService
 	workspaceId string
-	verbose *bool
+	verbose     *bool
 }
 
 // Verbose
@@ -170,26 +170,27 @@ GetWorkspace Get workspace info
 
 Get workspace info
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param workspaceId Workspace ID or Name
- @return ApiGetWorkspaceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param workspaceId Workspace ID or Name
+	@return ApiGetWorkspaceRequest
 */
 func (a *WorkspaceAPIService) GetWorkspace(ctx context.Context, workspaceId string) ApiGetWorkspaceRequest {
 	return ApiGetWorkspaceRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		workspaceId: workspaceId,
 	}
 }
 
 // Execute executes the request
-//  @return WorkspaceDTO
+//
+//	@return WorkspaceDTO
 func (a *WorkspaceAPIService) GetWorkspaceExecute(r ApiGetWorkspaceRequest) (*WorkspaceDTO, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *WorkspaceDTO
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *WorkspaceDTO
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspaceAPIService.GetWorkspace")
@@ -276,9 +277,9 @@ func (a *WorkspaceAPIService) GetWorkspaceExecute(r ApiGetWorkspaceRequest) (*Wo
 }
 
 type ApiListWorkspacesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *WorkspaceAPIService
-	verbose *bool
+	verbose    *bool
 }
 
 // Verbose
@@ -296,24 +297,25 @@ ListWorkspaces List workspaces
 
 List workspaces
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListWorkspacesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiListWorkspacesRequest
 */
 func (a *WorkspaceAPIService) ListWorkspaces(ctx context.Context) ApiListWorkspacesRequest {
 	return ApiListWorkspacesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []WorkspaceDTO
+//
+//	@return []WorkspaceDTO
 func (a *WorkspaceAPIService) ListWorkspacesExecute(r ApiListWorkspacesRequest) ([]WorkspaceDTO, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []WorkspaceDTO
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []WorkspaceDTO
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspaceAPIService.ListWorkspaces")
@@ -399,10 +401,10 @@ func (a *WorkspaceAPIService) ListWorkspacesExecute(r ApiListWorkspacesRequest) 
 }
 
 type ApiRemoveWorkspaceRequest struct {
-	ctx context.Context
-	ApiService *WorkspaceAPIService
+	ctx         context.Context
+	ApiService  *WorkspaceAPIService
 	workspaceId string
-	force *bool
+	force       *bool
 }
 
 // Force
@@ -420,14 +422,14 @@ RemoveWorkspace Remove workspace
 
 Remove workspace
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param workspaceId Workspace ID
- @return ApiRemoveWorkspaceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param workspaceId Workspace ID
+	@return ApiRemoveWorkspaceRequest
 */
 func (a *WorkspaceAPIService) RemoveWorkspace(ctx context.Context, workspaceId string) ApiRemoveWorkspaceRequest {
 	return ApiRemoveWorkspaceRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		workspaceId: workspaceId,
 	}
 }
@@ -435,9 +437,9 @@ func (a *WorkspaceAPIService) RemoveWorkspace(ctx context.Context, workspaceId s
 // Execute executes the request
 func (a *WorkspaceAPIService) RemoveWorkspaceExecute(r ApiRemoveWorkspaceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspaceAPIService.RemoveWorkspace")
@@ -515,11 +517,11 @@ func (a *WorkspaceAPIService) RemoveWorkspaceExecute(r ApiRemoveWorkspaceRequest
 }
 
 type ApiSetProjectStateRequest struct {
-	ctx context.Context
-	ApiService *WorkspaceAPIService
+	ctx         context.Context
+	ApiService  *WorkspaceAPIService
 	workspaceId string
-	projectId string
-	setState *SetProjectState
+	projectId   string
+	setState    *SetProjectState
 }
 
 // Set State
@@ -537,26 +539,26 @@ SetProjectState Set project state
 
 Set project state
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param workspaceId Workspace ID or Name
- @param projectId Project ID
- @return ApiSetProjectStateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param workspaceId Workspace ID or Name
+	@param projectId Project ID
+	@return ApiSetProjectStateRequest
 */
 func (a *WorkspaceAPIService) SetProjectState(ctx context.Context, workspaceId string, projectId string) ApiSetProjectStateRequest {
 	return ApiSetProjectStateRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		workspaceId: workspaceId,
-		projectId: projectId,
+		projectId:   projectId,
 	}
 }
 
 // Execute executes the request
 func (a *WorkspaceAPIService) SetProjectStateExecute(r ApiSetProjectStateRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspaceAPIService.SetProjectState")
@@ -637,10 +639,10 @@ func (a *WorkspaceAPIService) SetProjectStateExecute(r ApiSetProjectStateRequest
 }
 
 type ApiStartProjectRequest struct {
-	ctx context.Context
-	ApiService *WorkspaceAPIService
+	ctx         context.Context
+	ApiService  *WorkspaceAPIService
 	workspaceId string
-	projectId string
+	projectId   string
 }
 
 func (r ApiStartProjectRequest) Execute() (*http.Response, error) {
@@ -652,26 +654,26 @@ StartProject Start project
 
 Start project
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param workspaceId Workspace ID or Name
- @param projectId Project ID
- @return ApiStartProjectRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param workspaceId Workspace ID or Name
+	@param projectId Project ID
+	@return ApiStartProjectRequest
 */
 func (a *WorkspaceAPIService) StartProject(ctx context.Context, workspaceId string, projectId string) ApiStartProjectRequest {
 	return ApiStartProjectRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		workspaceId: workspaceId,
-		projectId: projectId,
+		projectId:   projectId,
 	}
 }
 
 // Execute executes the request
 func (a *WorkspaceAPIService) StartProjectExecute(r ApiStartProjectRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspaceAPIService.StartProject")
@@ -747,8 +749,8 @@ func (a *WorkspaceAPIService) StartProjectExecute(r ApiStartProjectRequest) (*ht
 }
 
 type ApiStartWorkspaceRequest struct {
-	ctx context.Context
-	ApiService *WorkspaceAPIService
+	ctx         context.Context
+	ApiService  *WorkspaceAPIService
 	workspaceId string
 }
 
@@ -761,14 +763,14 @@ StartWorkspace Start workspace
 
 Start workspace
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param workspaceId Workspace ID or Name
- @return ApiStartWorkspaceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param workspaceId Workspace ID or Name
+	@return ApiStartWorkspaceRequest
 */
 func (a *WorkspaceAPIService) StartWorkspace(ctx context.Context, workspaceId string) ApiStartWorkspaceRequest {
 	return ApiStartWorkspaceRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		workspaceId: workspaceId,
 	}
 }
@@ -776,9 +778,9 @@ func (a *WorkspaceAPIService) StartWorkspace(ctx context.Context, workspaceId st
 // Execute executes the request
 func (a *WorkspaceAPIService) StartWorkspaceExecute(r ApiStartWorkspaceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspaceAPIService.StartWorkspace")
@@ -853,10 +855,10 @@ func (a *WorkspaceAPIService) StartWorkspaceExecute(r ApiStartWorkspaceRequest) 
 }
 
 type ApiStopProjectRequest struct {
-	ctx context.Context
-	ApiService *WorkspaceAPIService
+	ctx         context.Context
+	ApiService  *WorkspaceAPIService
 	workspaceId string
-	projectId string
+	projectId   string
 }
 
 func (r ApiStopProjectRequest) Execute() (*http.Response, error) {
@@ -868,26 +870,26 @@ StopProject Stop project
 
 Stop project
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param workspaceId Workspace ID or Name
- @param projectId Project ID
- @return ApiStopProjectRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param workspaceId Workspace ID or Name
+	@param projectId Project ID
+	@return ApiStopProjectRequest
 */
 func (a *WorkspaceAPIService) StopProject(ctx context.Context, workspaceId string, projectId string) ApiStopProjectRequest {
 	return ApiStopProjectRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		workspaceId: workspaceId,
-		projectId: projectId,
+		projectId:   projectId,
 	}
 }
 
 // Execute executes the request
 func (a *WorkspaceAPIService) StopProjectExecute(r ApiStopProjectRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspaceAPIService.StopProject")
@@ -963,8 +965,8 @@ func (a *WorkspaceAPIService) StopProjectExecute(r ApiStopProjectRequest) (*http
 }
 
 type ApiStopWorkspaceRequest struct {
-	ctx context.Context
-	ApiService *WorkspaceAPIService
+	ctx         context.Context
+	ApiService  *WorkspaceAPIService
 	workspaceId string
 }
 
@@ -977,14 +979,14 @@ StopWorkspace Stop workspace
 
 Stop workspace
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param workspaceId Workspace ID or Name
- @return ApiStopWorkspaceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param workspaceId Workspace ID or Name
+	@return ApiStopWorkspaceRequest
 */
 func (a *WorkspaceAPIService) StopWorkspace(ctx context.Context, workspaceId string) ApiStopWorkspaceRequest {
 	return ApiStopWorkspaceRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		workspaceId: workspaceId,
 	}
 }
@@ -992,9 +994,9 @@ func (a *WorkspaceAPIService) StopWorkspace(ctx context.Context, workspaceId str
 // Execute executes the request
 func (a *WorkspaceAPIService) StopWorkspaceExecute(r ApiStopWorkspaceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkspaceAPIService.StopWorkspace")

@@ -1,8 +1,8 @@
 package mocks
 
 import (
-	"github.com/stretchr/testify/mock"
 	"github.com/spf13/afero"
+	"github.com/stretchr/testify/mock"
 
 	"github.com/hide-org/hide/pkg/gitignore"
 )

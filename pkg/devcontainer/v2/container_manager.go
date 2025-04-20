@@ -189,8 +189,8 @@ func (cm *DockerContainerManager) Exec(ctx context.Context, containerId string, 
 
 func (cm *DockerContainerManager) ExecDetached(ctx context.Context, containerId string, command []string) (string, error) {
 	execConfig := types.ExecConfig{
-		Cmd:          command,
-		Detach:       true,
+		Cmd:    command,
+		Detach: true,
 	}
 
 	execIDResp, err := cm.ContainerExecCreate(ctx, containerId, execConfig)

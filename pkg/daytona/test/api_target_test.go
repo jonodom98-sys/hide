@@ -11,10 +11,10 @@ package daytona
 
 import (
 	"context"
+	openapiclient "github.com/hide-org/hide/pkg/daytona"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/hide-org/hide/pkg/daytona"
 )
 
 func Test_daytona_TargetAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_daytona_TargetAPIService(t *testing.T) {
 
 	t.Run("Test TargetAPIService ListTargets", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.TargetAPI.ListTargets(context.Background()).Execute()
 
@@ -36,7 +36,7 @@ func Test_daytona_TargetAPIService(t *testing.T) {
 
 	t.Run("Test TargetAPIService RemoveTarget", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var target string
 
@@ -49,7 +49,7 @@ func Test_daytona_TargetAPIService(t *testing.T) {
 
 	t.Run("Test TargetAPIService SetDefaultTarget", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var target string
 
@@ -62,7 +62,7 @@ func Test_daytona_TargetAPIService(t *testing.T) {
 
 	t.Run("Test TargetAPIService SetTarget", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.TargetAPI.SetTarget(context.Background()).Execute()
 

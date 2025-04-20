@@ -11,8 +11,8 @@ API version: v0.0.0-dev
 package daytona
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,15 +21,15 @@ var _ MappedNullable = &GetRepositoryContext{}
 
 // GetRepositoryContext struct for GetRepositoryContext
 type GetRepositoryContext struct {
-	Branch *string `json:"branch,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Owner *string `json:"owner,omitempty"`
-	Path *string `json:"path,omitempty"`
-	PrNumber *int32 `json:"prNumber,omitempty"`
-	Sha *string `json:"sha,omitempty"`
-	Source *string `json:"source,omitempty"`
-	Url string `json:"url"`
+	Branch   *string `json:"branch,omitempty"`
+	Id       *string `json:"id,omitempty"`
+	Name     *string `json:"name,omitempty"`
+	Owner    *string `json:"owner,omitempty"`
+	Path     *string `json:"path,omitempty"`
+	PrNumber *int32  `json:"prNumber,omitempty"`
+	Sha      *string `json:"sha,omitempty"`
+	Source   *string `json:"source,omitempty"`
+	Url      string  `json:"url"`
 }
 
 type _GetRepositoryContext GetRepositoryContext
@@ -333,7 +333,7 @@ func (o *GetRepositoryContext) SetUrl(v string) {
 }
 
 func (o GetRepositoryContext) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -383,10 +383,10 @@ func (o *GetRepositoryContext) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -442,5 +442,3 @@ func (v *NullableGetRepositoryContext) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

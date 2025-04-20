@@ -94,5 +94,5 @@ func (h CreateTaskHandler) do(ctx context.Context, w http.ResponseWriter, r *htt
 	}
 
 	http.Error(w, "invalid request: either 'command' or 'alias' must be provided", http.StatusBadRequest)
-	return 
+	return
 }

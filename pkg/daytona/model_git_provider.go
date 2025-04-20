@@ -11,8 +11,8 @@ API version: v0.0.0-dev
 package daytona
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,14 +21,14 @@ var _ MappedNullable = &GitProvider{}
 
 // GitProvider struct for GitProvider
 type GitProvider struct {
-	Alias string `json:"alias"`
-	BaseApiUrl *string `json:"baseApiUrl,omitempty"`
-	Id string `json:"id"`
-	ProviderId string `json:"providerId"`
-	SigningKey *string `json:"signingKey,omitempty"`
+	Alias         string         `json:"alias"`
+	BaseApiUrl    *string        `json:"baseApiUrl,omitempty"`
+	Id            string         `json:"id"`
+	ProviderId    string         `json:"providerId"`
+	SigningKey    *string        `json:"signingKey,omitempty"`
 	SigningMethod *SigningMethod `json:"signingMethod,omitempty"`
-	Token string `json:"token"`
-	Username string `json:"username"`
+	Token         string         `json:"token"`
+	Username      string         `json:"username"`
 }
 
 type _GitProvider GitProvider
@@ -272,7 +272,7 @@ func (o *GitProvider) SetUsername(v string) {
 }
 
 func (o GitProvider) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -315,10 +315,10 @@ func (o *GitProvider) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -374,5 +374,3 @@ func (v *NullableGitProvider) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

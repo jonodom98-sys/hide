@@ -11,10 +11,10 @@ package daytona
 
 import (
 	"context"
+	openapiclient "github.com/hide-org/hide/pkg/daytona"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/hide-org/hide/pkg/daytona"
 )
 
 func Test_daytona_ContainerRegistryAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_daytona_ContainerRegistryAPIService(t *testing.T) {
 
 	t.Run("Test ContainerRegistryAPIService GetContainerRegistry", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var server string
 
@@ -38,7 +38,7 @@ func Test_daytona_ContainerRegistryAPIService(t *testing.T) {
 
 	t.Run("Test ContainerRegistryAPIService ListContainerRegistries", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ContainerRegistryAPI.ListContainerRegistries(context.Background()).Execute()
 
@@ -50,7 +50,7 @@ func Test_daytona_ContainerRegistryAPIService(t *testing.T) {
 
 	t.Run("Test ContainerRegistryAPIService RemoveContainerRegistry", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var server string
 
@@ -63,7 +63,7 @@ func Test_daytona_ContainerRegistryAPIService(t *testing.T) {
 
 	t.Run("Test ContainerRegistryAPIService SetContainerRegistry", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var server string
 

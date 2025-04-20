@@ -37,4 +37,4 @@ func (h GetProjectHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, fmt.Sprintf("failed to encode response: %s", err), http.StatusInternalServerError)
 		return
 	}
-} 
+}

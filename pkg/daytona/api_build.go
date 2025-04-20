@@ -19,13 +19,12 @@ import (
 	"strings"
 )
 
-
 // BuildAPIService BuildAPI service
 type BuildAPIService service
 
 type ApiCreateBuildRequest struct {
-	ctx context.Context
-	ApiService *BuildAPIService
+	ctx            context.Context
+	ApiService     *BuildAPIService
 	createBuildDto *CreateBuildDTO
 }
 
@@ -44,24 +43,25 @@ CreateBuild Create a build
 
 Create a build
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateBuildRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateBuildRequest
 */
 func (a *BuildAPIService) CreateBuild(ctx context.Context) ApiCreateBuildRequest {
 	return ApiCreateBuildRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return string
+//
+//	@return string
 func (a *BuildAPIService) CreateBuildExecute(r ApiCreateBuildRequest) (string, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  string
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BuildAPIService.CreateBuild")
@@ -149,9 +149,9 @@ func (a *BuildAPIService) CreateBuildExecute(r ApiCreateBuildRequest) (string, *
 }
 
 type ApiDeleteAllBuildsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *BuildAPIService
-	force *bool
+	force      *bool
 }
 
 // Force
@@ -169,22 +169,22 @@ DeleteAllBuilds Delete ALL builds
 
 Delete ALL builds
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDeleteAllBuildsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeleteAllBuildsRequest
 */
 func (a *BuildAPIService) DeleteAllBuilds(ctx context.Context) ApiDeleteAllBuildsRequest {
 	return ApiDeleteAllBuildsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *BuildAPIService) DeleteAllBuildsExecute(r ApiDeleteAllBuildsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BuildAPIService.DeleteAllBuilds")
@@ -261,10 +261,10 @@ func (a *BuildAPIService) DeleteAllBuildsExecute(r ApiDeleteAllBuildsRequest) (*
 }
 
 type ApiDeleteBuildRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *BuildAPIService
-	buildId string
-	force *bool
+	buildId    string
+	force      *bool
 }
 
 // Force
@@ -282,24 +282,24 @@ DeleteBuild Delete build
 
 Delete build
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param buildId Build ID
- @return ApiDeleteBuildRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param buildId Build ID
+	@return ApiDeleteBuildRequest
 */
 func (a *BuildAPIService) DeleteBuild(ctx context.Context, buildId string) ApiDeleteBuildRequest {
 	return ApiDeleteBuildRequest{
 		ApiService: a,
-		ctx: ctx,
-		buildId: buildId,
+		ctx:        ctx,
+		buildId:    buildId,
 	}
 }
 
 // Execute executes the request
 func (a *BuildAPIService) DeleteBuildExecute(r ApiDeleteBuildRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BuildAPIService.DeleteBuild")
@@ -377,10 +377,10 @@ func (a *BuildAPIService) DeleteBuildExecute(r ApiDeleteBuildRequest) (*http.Res
 }
 
 type ApiDeleteBuildsFromPrebuildRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *BuildAPIService
 	prebuildId string
-	force *bool
+	force      *bool
 }
 
 // Force
@@ -398,14 +398,14 @@ DeleteBuildsFromPrebuild Delete builds
 
 Delete builds
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param prebuildId Prebuild ID
- @return ApiDeleteBuildsFromPrebuildRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param prebuildId Prebuild ID
+	@return ApiDeleteBuildsFromPrebuildRequest
 */
 func (a *BuildAPIService) DeleteBuildsFromPrebuild(ctx context.Context, prebuildId string) ApiDeleteBuildsFromPrebuildRequest {
 	return ApiDeleteBuildsFromPrebuildRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		prebuildId: prebuildId,
 	}
 }
@@ -413,9 +413,9 @@ func (a *BuildAPIService) DeleteBuildsFromPrebuild(ctx context.Context, prebuild
 // Execute executes the request
 func (a *BuildAPIService) DeleteBuildsFromPrebuildExecute(r ApiDeleteBuildsFromPrebuildRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BuildAPIService.DeleteBuildsFromPrebuild")
@@ -493,9 +493,9 @@ func (a *BuildAPIService) DeleteBuildsFromPrebuildExecute(r ApiDeleteBuildsFromP
 }
 
 type ApiGetBuildRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *BuildAPIService
-	buildId string
+	buildId    string
 }
 
 func (r ApiGetBuildRequest) Execute() (*Build, *http.Response, error) {
@@ -507,26 +507,27 @@ GetBuild Get build data
 
 Get build data
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param buildId Build ID
- @return ApiGetBuildRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param buildId Build ID
+	@return ApiGetBuildRequest
 */
 func (a *BuildAPIService) GetBuild(ctx context.Context, buildId string) ApiGetBuildRequest {
 	return ApiGetBuildRequest{
 		ApiService: a,
-		ctx: ctx,
-		buildId: buildId,
+		ctx:        ctx,
+		buildId:    buildId,
 	}
 }
 
 // Execute executes the request
-//  @return Build
+//
+//	@return Build
 func (a *BuildAPIService) GetBuildExecute(r ApiGetBuildRequest) (*Build, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Build
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Build
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BuildAPIService.GetBuild")
@@ -610,7 +611,7 @@ func (a *BuildAPIService) GetBuildExecute(r ApiGetBuildRequest) (*Build, *http.R
 }
 
 type ApiListBuildsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *BuildAPIService
 }
 
@@ -623,24 +624,25 @@ ListBuilds List builds
 
 List builds
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListBuildsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiListBuildsRequest
 */
 func (a *BuildAPIService) ListBuilds(ctx context.Context) ApiListBuildsRequest {
 	return ApiListBuildsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Build
+//
+//	@return []Build
 func (a *BuildAPIService) ListBuildsExecute(r ApiListBuildsRequest) ([]Build, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Build
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Build
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BuildAPIService.ListBuilds")

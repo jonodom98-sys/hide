@@ -52,10 +52,10 @@ func TestMatcherImpl_Match(t *testing.T) {
 			expectedResult: true,
 		},
 		{
-			name: "match with cleaned path",
-			path: "dir/../file.txt",
-			isDir: false,
-			expectedPath: []string{"file.txt"},
+			name:           "match with cleaned path",
+			path:           "dir/../file.txt",
+			isDir:          false,
+			expectedPath:   []string{"file.txt"},
 			expectedResult: true,
 		},
 	}

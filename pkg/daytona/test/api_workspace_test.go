@@ -11,10 +11,10 @@ package daytona
 
 import (
 	"context"
+	openapiclient "github.com/hide-org/hide/pkg/daytona"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/hide-org/hide/pkg/daytona"
 )
 
 func Test_daytona_WorkspaceAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_daytona_WorkspaceAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceAPIService CreateWorkspace", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.WorkspaceAPI.CreateWorkspace(context.Background()).Execute()
 
@@ -36,7 +36,7 @@ func Test_daytona_WorkspaceAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceAPIService GetWorkspace", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspaceId string
 
@@ -50,7 +50,7 @@ func Test_daytona_WorkspaceAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceAPIService ListWorkspaces", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.WorkspaceAPI.ListWorkspaces(context.Background()).Execute()
 
@@ -62,7 +62,7 @@ func Test_daytona_WorkspaceAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceAPIService RemoveWorkspace", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspaceId string
 
@@ -75,7 +75,7 @@ func Test_daytona_WorkspaceAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceAPIService SetProjectState", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspaceId string
 		var projectId string
@@ -89,7 +89,7 @@ func Test_daytona_WorkspaceAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceAPIService StartProject", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspaceId string
 		var projectId string
@@ -103,7 +103,7 @@ func Test_daytona_WorkspaceAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceAPIService StartWorkspace", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspaceId string
 
@@ -116,7 +116,7 @@ func Test_daytona_WorkspaceAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceAPIService StopProject", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspaceId string
 		var projectId string
@@ -130,7 +130,7 @@ func Test_daytona_WorkspaceAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceAPIService StopWorkspace", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspaceId string
 

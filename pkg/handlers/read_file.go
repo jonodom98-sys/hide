@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/hide-org/hide/pkg/project"
 	"github.com/hide-org/hide/pkg/files"
+	"github.com/hide-org/hide/pkg/project"
 )
 
 type ReadFileHandler struct {

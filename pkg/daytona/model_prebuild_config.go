@@ -11,8 +11,8 @@ API version: v0.0.0-dev
 package daytona
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -21,11 +21,11 @@ var _ MappedNullable = &PrebuildConfig{}
 
 // PrebuildConfig struct for PrebuildConfig
 type PrebuildConfig struct {
-	Branch string `json:"branch"`
-	CommitInterval int32 `json:"commitInterval"`
-	Id string `json:"id"`
-	Retention int32 `json:"retention"`
-	TriggerFiles []string `json:"triggerFiles"`
+	Branch         string   `json:"branch"`
+	CommitInterval int32    `json:"commitInterval"`
+	Id             string   `json:"id"`
+	Retention      int32    `json:"retention"`
+	TriggerFiles   []string `json:"triggerFiles"`
 }
 
 type _PrebuildConfig PrebuildConfig
@@ -173,7 +173,7 @@ func (o *PrebuildConfig) SetTriggerFiles(v []string) {
 }
 
 func (o PrebuildConfig) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -207,10 +207,10 @@ func (o *PrebuildConfig) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -266,5 +266,3 @@ func (v *NullablePrebuildConfig) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
