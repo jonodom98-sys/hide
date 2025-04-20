@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"io/fs"
+	"net/url"
 	"os"
 	"path"
 	"sync"
@@ -102,20 +103,44 @@ func NewProjectManager(
 func (pm ManagerImpl) CreateProject(ctx context.Context, request CreateProjectRequest) (*model.Project, error) {
 	log.Debug().Msgf("Creating project for repo %s", request.Repository.Url)
 
+	var (
+		r           *git.Repository
+		err         error
+		projectPath string
+	)
+
+	// Generate unique project ID
 	projectId := pm.randomString(10)
-	projectPath := path.Join(pm.projectsRoot, projectId)
 
-	// Clone git repo
-	if err := pm.createProjectDir(projectPath); err != nil {
-		log.Error().Err(err).Msg("Failed to create project directory")
-		return nil, fmt.Errorf("Failed to create project directory: %w", err)
-	}
-
-	r, err := pm.git.Clone(request.Repository.Url, projectPath)
+	repoUrl, err := url.Parse(request.Repository.Url)
 	if err != nil {
-		log.Error().Err(err).Msg("Failed to clone git repo")
-		removeProjectDir(projectPath)
-		return nil, fmt.Errorf("Failed to clone git repo: %w", err)
+		log.Error().Err(err).Msg("Failed to parse repository URL")
+		return nil, fmt.Errorf("Failed to parse repository URL: %w", err)
+	}
+	repo := git.NewRepository(*repoUrl)
+
+	if repo.IsLocal() {
+		// For local repositories, use the existing directory
+		r, err = pm.git.OpenRepository(repo.URL.Path)
+		if err != nil {
+			log.Error().Err(err).Msg("Failed to open local git repo")
+			return nil, fmt.Errorf("Failed to open local git repo: %w", err)
+		}
+		projectPath = repo.URL.Path
+	} else {
+		// For remote repositories, create directory and clone
+		projectPath = path.Join(pm.projectsRoot, projectId)
+
+		if err := pm.createProjectDir(projectPath); err != nil {
+			log.Error().Err(err).Msg("Failed to create project directory")
+			return nil, fmt.Errorf("Failed to create project directory: %w", err)
+		}
+		r, err = pm.git.Clone(request.Repository.Url, projectPath)
+		if err != nil {
+			log.Error().Err(err).Msg("Failed to clone git repo")
+			removeProjectDir(projectPath)
+			return nil, fmt.Errorf("Failed to clone git repo: %w", err)
+		}
 	}
 
 	if request.Repository.Commit != nil {
@@ -126,30 +151,26 @@ func (pm ManagerImpl) CreateProject(ctx context.Context, request CreateProjectRe
 		}
 	}
 
-	// Start devcontainer
-	var devContainerConfig devcontainer.Config
-
-	if request.DevContainer != nil {
-		devContainerConfig = *request.DevContainer
-	} else {
+	// Configure devcontainer
+	devContainerConfig := request.DevContainer
+	if devContainerConfig == nil {
 		config, err := pm.configFromProject(os.DirFS(projectPath))
 		if err != nil {
 			log.Error().Err(err).Msgf("Failed to get devcontainer config from repository %s", request.Repository.Url)
 			removeProjectDir(projectPath)
 			return nil, fmt.Errorf("Failed to read devcontainer.json: %w", err)
 		}
-
-		devContainerConfig = config
+		devContainerConfig = &config
 	}
 
-	containerId, err := pm.devContainerRunner.Run(ctx, projectPath, devContainerConfig)
+	containerId, err := pm.devContainerRunner.Run(ctx, projectPath, *devContainerConfig)
 	if err != nil {
 		log.Error().Err(err).Msg("Failed to launch devcontainer")
 		removeProjectDir(projectPath)
 		return nil, fmt.Errorf("Failed to launch devcontainer: %w", err)
 	}
 
-	project := model.NewProject(projectId, projectPath, model.Config{DevContainerConfig: devContainerConfig}, containerId, request.Repository)
+	project := model.NewProject(projectId, projectPath, model.Config{DevContainerConfig: *devContainerConfig}, containerId, request.Repository)
 
 	languages := request.Languages
 	if len(languages) == 0 {
