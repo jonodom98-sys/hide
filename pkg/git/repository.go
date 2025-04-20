@@ -29,3 +29,7 @@ func NewLocalRepository(path string) (*Repository, error) {
 	}
 	return &Repository{URL: *u}, nil
 }
+
+func (r Repository) IsLocal() bool {
+	return r.URL.Scheme == "file"
+}
